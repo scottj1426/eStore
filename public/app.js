@@ -7,28 +7,29 @@ angular.module('eStore', ['ui.router'])
     $stateProvider
     .state("Login", {
         url: "/login",
-        templateUrl: "/public/component/login/login.html"
+        templateUrl: "/component/login/login.html"
       })
       .state("Home", {
         url: "/home",
-        templateUrl: "/public/component/home/home.html"
+        templateUrl: "/component/home/home.html"
       })
 
       .state("Inventory", {
         url: "/Inventory",
-        templateUrl: "/public/component/inventory/products.html"
+        templateUrl: "/component/inventory/products.html",
+        controller: "productsCtrl"
       })
       .state("ShoppingCart", {
         url: "/Cart",
-        templateUrl: "/public/component/shoppingCart/shoppingCart.html"
+        templateUrl: "/component/shoppingCart/shoppingCart.html"
       })
       .state("Checkout", {
         url: "/Checkout",
-        templateUrl: "/public/component/checkout/checkout.html"
+        templateUrl: "/component/checkout/checkout.html"
       })
       .state("Profile", {
         url: "/Profile",
-        templateUrl: "/public/component/profile/profile.html"
+        templateUrl: "/component/profile/profile.html"
       });
       
 

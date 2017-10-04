@@ -6,6 +6,7 @@ const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+conncetionString = 'postgres://JamesScott@localhost/JamesScott';
 
 //require config here
 const { secret } = require('./config').session;
@@ -24,7 +25,18 @@ const app = express();
 //use middlewares
 app.use(json());
 app.use(cors());
-app.use(express.static(`${__dirname}/../public`));
+app.use('/', express.static(__dirname + '/public'));
+massive(conncetionString).then(db => {
+    app.set('db', db);
+  });
+
+
+  app.get('/api/products', (req, res) => {
+    req.app
+      .get('db')
+      .getProducts()
+      .then(products => res.json(products));
+  });
 
 //use express
 app.use(session({

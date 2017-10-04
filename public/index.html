@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body ng-controller="homeCtrl">
-  {{test}}
+<body >
+  
        
 
         
@@ -24,7 +24,7 @@
 
     </ul>
     </div>
-    
+    <ui-view></ui-view>
 
 
 
@@ -34,7 +34,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
     <script src="./app.js"></script>
     <script src="./app.routes.js"></script>
+    <script src="./component/inventory/productsCtrl.js"></script>
     <script src="./component/home/homeCtrl.js"></script>
+    <script src="./services/appSrv.js"></script>
     
 </body>
 </html>

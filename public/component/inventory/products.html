@@ -3,9 +3,9 @@
             <img ng-src=".{{product.image}}" alt="">
    
         </div>
-    {{product.Name}}
+    {{product.name}}
     <div>
-     {{product.Price}} 
-    <button>Add To Cart</button>
+     {{product.price}} 
+    <button ng-click="addToCart(product)">Add To Cart</button>
     </div>
 </div>

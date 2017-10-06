@@ -21,7 +21,13 @@ angular.module('eStore', ['ui.router'])
       })
       .state("ShoppingCart", {
         url: "/Cart",
-        templateUrl: "/component/shoppingCart/shoppingCart.html"
+        templateUrl: "/component/shoppingCart/shoppingCart.html",
+      resolve: {
+        cart: function(appSrv){
+          return appSrv.getCart();
+        }
+      },
+      controller: "shopCtrl"
       })
       .state("Checkout", {
         url: "/Checkout",

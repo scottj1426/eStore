@@ -38,6 +38,21 @@ massive(conncetionString).then(db => {
       .then(products => res.json(products));
   });
 
+
+  app.post('/api/cart', (req, res) => {
+    req.app
+      .get('db')
+      .addToCart([req.body.product.name, req.body.product.price])
+      .then(products => res.json("SUCCESS"));
+  });
+
+  app.get('/api/cart', (req, res) => {
+    req.app
+      .get('db')
+      .getCart()
+      .then(products => res.json(products));
+  });
+
 //use express
 app.use(session({
     secret,

@@ -1,6 +1,11 @@
 <div ng-repeat =" product in products">
-
+   <div>
+            <img ng-src=".{{product.image}}" alt="">
+   
+        </div>
     {{product.Name}}
-    {{product.Price}}
-    {{product.Description}}
+    <div>
+     {{product.Price}} 
+    <button>Add To Cart</button>
+    </div>
 </div>

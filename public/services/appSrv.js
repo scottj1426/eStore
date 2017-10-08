@@ -24,6 +24,16 @@ angular.module('eStore').service('appSrv', function($http){
         }).catch(err => console.log(err));
     }
 
+
+    this.deleteFromCart = function(id) {
+        return $http 
+        .delete('/api/cart/' + id).then(function(response){
+            console.log(response.data)
+            return response.data; 
+        }).catch(err => console.log(err));
+    }
+    
+
   
 
 })

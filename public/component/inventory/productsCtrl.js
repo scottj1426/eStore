@@ -7,5 +7,6 @@ appSrv.getData().then(response => {
             alert('success');
         })
     }
-})
+     
+ })
 })

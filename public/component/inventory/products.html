@@ -1,6 +1,12 @@
-<div ng-repeat =" product in products">
+
+<input type="" ng-model="searchText.$">
+
+<div ng-repeat =" product in products| filter: searchText">
+
+
    <div>
-            <img ng-src=".{{product.image}}" alt="">
+       
+    <img ng-src=".{{product.image}}" alt="">
    
         </div>
     {{product.name}}

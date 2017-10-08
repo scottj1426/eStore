@@ -7,7 +7,8 @@
 <div>
     {{item.name}}
     {{item.price}}
-    <button ng-click="">Remove From Cart</button>
+    {{item.id}}
+    <button ng-click="deleteFromCart(item.id)">Remove From Cart</button>
 </div>
 
 </div>

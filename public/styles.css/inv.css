@@ -8,3 +8,14 @@ img{
    width: 300px;
    height: 300px; 
 }
+
+.navBar ul {
+    width: 100%;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    text-decoration-style: none;
+    
+
+}

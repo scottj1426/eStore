@@ -4,14 +4,18 @@
 
 <div ng-repeat="item in cart" >
         <!-- <button ng-click="clearCart(cart)">Empty Cart</button> -->
-        
 <div class="cart">
-    
-    {{item.name}} | {{item.price}} | {{item.image}} {{item.quantity}}
+    {{item.name}} | {{item.price}} | {{item.image}} {{item.quantity}} 
     <button ng-click="deleteFromCart(item.id)">Remove From Cart</button>
 </div>
+</div>
+<div>
+    total: {{total | number:2}}
+</div>
+<div>
+    tax: {{tax | number:2}}
+</div>
 
-    <div
-
-
+<div>
+    total plus tax: {{final | number:2}}
 </div>

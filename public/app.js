@@ -24,7 +24,7 @@ angular.module('eStore', ['ui.router'])
         templateUrl: "/component/shoppingCart/shoppingCart.html",
       resolve: {
         cart: function(appSrv){
-          return appSrv.getCart();
+          return appSrv.getCart()            
         }
       },
       controller: "shopCtrl"

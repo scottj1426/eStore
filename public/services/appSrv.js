@@ -9,6 +9,7 @@ angular.module('eStore').service('appSrv', function($http){
     }
 
     this.addToCart = function(product) {
+        console.log("appSrv", product)
         return $http 
         .post('api/cart', {product}).then(function(response){
             console.log(response)
@@ -16,10 +17,10 @@ angular.module('eStore').service('appSrv', function($http){
         })
     }
     this.getCart = function() {
-        console.log("hey")
+    
         return $http 
         .get('/api/cart').then(function(response){
-            console.log(response.data)
+            console.log("getCart",response.data)
             return response.data; 
         }).catch(err => console.log(err));
     }
@@ -32,6 +33,28 @@ angular.module('eStore').service('appSrv', function($http){
             return response.data; 
         }).catch(err => console.log(err));
     }
+
+    this.clearCart = function() {
+        return $http 
+        .delete('/api/cart').then(function(response){
+            console.log(response.data)
+            return response.data;
+        }).catch(err => console.log(err));
+    }
+
+    this.updateQuantity = function(quanity) {
+        return $http 
+        .post('/api/cart/' + quantity).then(function(response){
+            console.log(response.data)
+            return response.data; 
+        }).catch(err => console.log(err));
+    }
+
+    
+   
+    
+
+    
     
 
   

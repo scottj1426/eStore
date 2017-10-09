@@ -42,8 +42,8 @@ massive(conncetionString).then(db => {
   app.post('/api/cart/', (req, res) => {
     req.app
       .get('db')
-      .addToCart([req.body.product.name, req.body.product.price])
-      .then(products => res.json("SUCCESS"));
+      .addToCart([req.body.product.name, req.body.product.price, req.body.product.quantity])
+      .then(products => res.json(products));
   });
 
 
@@ -61,6 +61,30 @@ massive(conncetionString).then(db => {
       .deleteFromCart([req.params.id])
       .then(products => res.json(products));
   });
+
+
+  app.delete('/api/cart', (req, res) => {
+    req.app
+      .get('db')
+      .clearCart()
+      .then(products => res.json(products));
+  });
+
+  app.get('/api/cart', (req, res) => {
+    req.app
+      .get('db')
+      .getCart()
+      .then(products => res.json(products));
+  });
+
+  app.post('/api/cart/:quantity', (req, res) => {
+    req.app
+      .get('db')
+      .updateQuantity ([req.params.quantity])
+      .then(products => res.json(products));
+  });
+
+  
 
 
 

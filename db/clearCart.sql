@@ -1,0 +1,2 @@
+TRUNCATE TABLE cart;
+SELECT * FROM cart;

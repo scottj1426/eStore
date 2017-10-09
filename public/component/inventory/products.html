@@ -11,7 +11,10 @@
         </div>
     {{product.name}}
     <div>
-     {{product.price}} 
+   
+     {{product.price}}
+     <input type="integer"  ng-model="product.quantity"> 
     <button ng-click="addToCart(product)">Add To Cart</button>
+   
     </div>
 </div>

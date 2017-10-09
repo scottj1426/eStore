@@ -3,12 +3,15 @@
 
 
 <div ng-repeat="item in cart" >
-
-<div>
-    {{item.name}}
-    {{item.price}}
-    {{item.id}}
+        <!-- <button ng-click="clearCart(cart)">Empty Cart</button> -->
+        
+<div class="cart">
+    
+    {{item.name}} | {{item.price}} | {{item.image}} {{item.quantity}}
     <button ng-click="deleteFromCart(item.id)">Remove From Cart</button>
 </div>
+
+    <div
+
 
 </div>

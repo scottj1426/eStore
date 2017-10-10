@@ -1,7 +1,9 @@
 
-<input type="" ng-model="searchText.$">
+Item Type: <input type="" ng-model="searchText.$">
 
 <div ng-repeat =" product in products| filter: searchText">
+
+       
 
 
    <div>
@@ -13,8 +15,13 @@
     <div>
    
      {{product.price}}
-     <input type="integer"  ng-model="product.quantity"> 
+     <label>Number:
+            <input type="number" name="input" ng-model="product.quantity"
+                   min="0" max="99" required>
+         </label>
+     <!-- <input type="integer"  ng-model="product.quantity">  -->
     <button ng-click="addToCart(product)">Add To Cart</button>
    
     </div>
+
 </div>

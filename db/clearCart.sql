@@ -1,2 +1,2 @@
-TRUNCATE TABLE cart;
+DELETE FROM cart;
 SELECT * FROM cart;

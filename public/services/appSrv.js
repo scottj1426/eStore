@@ -42,13 +42,14 @@ angular.module('eStore').service('appSrv', function($http){
         }).catch(err => console.log(err));
     }
 
-    this.updateQuantity = function(quanity) {
-        return $http 
-        .post('/api/cart/' + quantity).then(function(response){
-            console.log(response.data)
-            return response.data; 
-        }).catch(err => console.log(err));
-    }
+  this.updateCart = function (cart) {
+      console.log("Service",cart)
+      return $http
+      .put('/api/cart/' + cart[0].quantity).then(function(response){
+          console.log(response);
+          return response;
+      }).catch(err => console.log(err));
+  }
 
     
    

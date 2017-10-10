@@ -77,10 +77,12 @@ massive(conncetionString).then(db => {
       .then(products => res.json(products));
   });
 
-  app.post('/api/cart/:quantity', (req, res) => {
+
+  app.put('/api/cart/:quantity', (req, res) => {
+    console.log("index.js param:", req.params.quantity);
     req.app
       .get('db')
-      .updateQuantity ([req.params.quantity])
+      .updateCart([req.params.quantity])
       .then(products => res.json(products));
   });
 

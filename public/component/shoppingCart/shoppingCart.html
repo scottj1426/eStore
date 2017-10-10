@@ -1,21 +1,30 @@
+<div ng-repeat="item in cart" class="cart-container">
+    <!-- <button ng-click="clearCart(cart)">Empty Cart</button> -->
+    <div class="cart">
+        {{item.name}} | {{item.price}} | {{item.image}} {{item.quantity}}
+        <label>
+                <input type="number" name="input" ng-model="item.quantity"
+                       min="0" max="99" required>
+             </label>
+        <button ng-click="deleteFromCart(item.id)">Remove From Cart</button>
+    </div>
+</div>
 
-
-
-
-<div ng-repeat="item in cart" >
-        <!-- <button ng-click="clearCart(cart)">Empty Cart</button> -->
 <div class="cart">
-    {{item.name}} | {{item.price}} | {{item.image}} {{item.quantity}} 
-    <button ng-click="deleteFromCart(item.id)">Remove From Cart</button>
-</div>
-</div>
-<div>
     total: {{total | number:2}}
 </div>
-<div>
+<div class="cart">
     tax: {{tax | number:2}}
 </div>
 
-<div>
+<div class="cart">
     total plus tax: {{final | number:2}}
+</div>
+
+<div class="cart">
+    <button ng-click="updateCart(cart); reload()">Update Cart</button>
+    <button  ng-click="clearCart(cart); reload()">Clear Cart</button>
+    
+        
+
 </div>

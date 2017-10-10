@@ -16,6 +16,19 @@ img{
     align-items: center;
     list-style: none;
     text-decoration-style: none;
+    /* margin: 0 0 50px 0; */
 
+}
+.cart-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart {
+    width: 100%;
+    text-align: center;
+    margin: 1.5% 0;
 }
 

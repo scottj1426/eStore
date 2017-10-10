@@ -1,4 +1,4 @@
-angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,cart){
+angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,cart, $window){
     console.log("shoppingCtrl cart:", cart);
     $scope.cart = cart;
 
@@ -41,16 +41,20 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
         appSrv.clearCart().then(response => {
             console.log(response)
             $scope.emptyCart = response;
-            alert('Cart is Clear');
+           
         })
     } 
-        //delete if not needed in future
-    $scope.updateQuantity = function(){
-        appSrv.updateQuantity(quantity).then(response => {
+       
+    $scope.updateCart = function(quantity){
+        console.log("updateCart Ctrl:", quantity)
+        appSrv.updateCart(quantity).then(response => {
             console.log(response)
-            $scope.quantity  = response; 
-            
-        })
+            $scope.cart.quantity  = response; 
+        }).catch(err => console.log(err));
+    }
+
+    $scope.reload = () => {
+        $window.location.reload();
     }
 
 

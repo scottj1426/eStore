@@ -7,11 +7,18 @@ angular.module('eStore', ['ui.router'])
     $stateProvider
     .state("Login", {
         url: "/login",
-        templateUrl: "/component/login/login.html"
+        templateUrl: "/component/login/login.html",
+        controller: "loginCtrl"
       })
       .state("Home", {
-        url: "/home",
-        templateUrl: "/component/home/home.html"
+        url: "/",
+        templateUrl: "/component/home/home.html",
+        controller: "homeCtrl",
+        resolve: {
+          user: loginSrvc => loginSrvc.getUser()
+              .then(response => response.data)
+              .catch(err => err)
+        }
       })
 
       .state("Inventory", {
@@ -36,7 +43,12 @@ angular.module('eStore', ['ui.router'])
       .state("Profile", {
         url: "/Profile",
         templateUrl: "/component/profile/profile.html"
-      });
+      })
+      .state("item", {
+        url: "/products/:id",
+        templateUrl: "/component/itemDetails/itemDetails.html",
+        controller: "itemDetailsCtrl"
+      })
       
 
 

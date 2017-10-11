@@ -8,6 +8,14 @@ angular.module('eStore').service('appSrv', function($http){
         })
     }
 
+    this.getItem = function(id){
+        return $http
+        .get('/api/products/' + id).then(function(response){
+            console.log(response);
+            return response.data;
+        })
+    }
+
     this.addToCart = function(product) {
         console.log("appSrv", product)
         return $http 

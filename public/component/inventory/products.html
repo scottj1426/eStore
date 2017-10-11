@@ -11,11 +11,12 @@ Item Type: <input type="" ng-model="searchText.$">
     <img ng-src=".{{product.image}}" alt="">
    
         </div>
-    {{product.name}}
+        <h3 class="product-grid__name"><a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></h3>
+    <!-- {{product.name}} -->
     <div>
    
      {{product.price}}
-     <label>Number:
+     <label>
             <input type="number" name="input" ng-model="product.quantity"
                    min="0" max="99" required>
          </label>

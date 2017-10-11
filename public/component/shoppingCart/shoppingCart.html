@@ -1,7 +1,7 @@
 <div ng-repeat="item in cart" class="cart-container">
     <!-- <button ng-click="clearCart(cart)">Empty Cart</button> -->
     <div class="cart">
-        {{item.name}} | {{item.price}} | {{item.image}} {{item.quantity}}
+        {{item.name}} | {{item.price}} | {{item.image}}
         <label>
                 <input type="number" name="input" ng-model="item.quantity"
                        min="0" max="99" required>

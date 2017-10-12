@@ -1,1 +1,1 @@
-INSERT INTO cart (name,price, quantity) VALUES ($1,$2, $3);
+INSERT INTO cart (name,price, quantity,image) VALUES ($1,$2, $3,$4);

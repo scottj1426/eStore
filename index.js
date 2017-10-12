@@ -1,15 +1,19 @@
 // Bring in our required modules
 const express = require('express');
-const { json } = require('body-parser');
+const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-conncetionString = 'postgres://JamesScott@localhost/JamesScott';
+conncetionString = 'postgres://JamesScott@localhost/JamesScott';// 
+// const keys = require('./config/keys');
+// const stripe = require('stripe')(keys.stripeSecretKey);
 
 //require config here
 const { secret } = require('./config').session;
+ const {stripeSecretKey} = require('./config').keys;
+const stripe = require('stripe')(stripeSecretKey);
 const { dbUser, database } = require('./config').db;
 const { domain, clientID, clientSecret } = require('./config').auth0;
 
@@ -17,15 +21,58 @@ const { domain, clientID, clientSecret } = require('./config').auth0;
 //port
 const port = 3000;
 
-//database connection information
+
 
 //app declaration
 const app = express();
 
 //use middlewares
-app.use(json());
+
+
+// app.use(json());
 app.use(cors());
 app.use('/', express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended:false}));
+
+// //Index Route
+// app.get('/', (req, res) => {
+//   res.render('/Cart', {
+//     stripePublishableKey: keys.stripePublishableKey
+//   });
+// });
+
+// Index Route
+app.get('/', (req, res) => {
+  res.render('index', {
+    stripePublishableKey: keys.stripePublishableKey
+  });
+});
+
+// Charge Route
+app.post('/api/payment', (req, res) => {
+  console.log(req.body);
+  const amount = Math.round(req.body.total,4);
+  const { id, email } = req.body.token;
+  const cardId = req.body.token.card.id;
+  
+  stripe.customers.create({
+    email,
+    source: id
+  })
+  .then(customer => stripe.charges.create({
+    amount,
+    description: 'Web Development Ebook',
+    currency: 'usd',
+    customer: customer.id,
+    card: cardId
+  }))
+  .then(charge => res.json({message: 'Successful Message'}));
+});
+
+
+
+
 
 massive(conncetionString).then(db => {
     app.set('db', db);
@@ -99,9 +146,10 @@ passport.deserializeUser((user, done) => {
   });
 
   app.post('/api/cart/', (req, res) => {
+    
     req.app
       .get('db')
-      .addToCart([req.body.product.name, req.body.product.price, req.body.product.quantity])
+      .addToCart([req.body.product.name, req.body.product.price, req.body.product.quantity,req.body.product.image])
       .then(products => res.json(products));
   });
 
@@ -133,16 +181,27 @@ passport.deserializeUser((user, done) => {
     req.app
       .get('db')
       .getCart()
-      .then(products => res.json(products));
+      .then(products => {
+        res.json(products)
+      });
   });
 
 
-  app.put('/api/cart/:quantity', (req, res) => {
-    console.log("index.js param:", req.params.quantity);
-    req.app
-      .get('db')
-      .updateCart([req.params.quantity])
-      .then(products => res.json(products));
+  app.put('/api/cart', (req, res) => {
+    let items = req.body
+    console.log("update cart body:", items)
+
+    const promise = items.map(item => {
+      console.log("each item:", item)
+      const response = []
+      response.push( req.app.get( 'db' ).updateCart([ item.quantity, item.id ]) )                  
+      console.log("response array:", response)
+    }); 
+
+    Promise.all(promise)
+        .then( items => {
+          console.log("promise all", items)
+    })
   });
 
 

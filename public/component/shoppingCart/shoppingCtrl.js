@@ -45,9 +45,9 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
         })
     } 
        
-    $scope.updateCart = function(quantity){
-        console.log("updateCart Ctrl:", quantity)
-        appSrv.updateCart(quantity).then(response => {
+    $scope.updateCart = function(cart){
+        console.log("updateCart Ctrl:", cart)
+        appSrv.updateCart(cart).then(response => {
             console.log(response)
             $scope.cart.quantity  = response; 
         }).catch(err => console.log(err));
@@ -55,6 +55,29 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
 
     $scope.reload = () => {
         $window.location.reload();
+    }
+
+    $scope.openPayment = function(name, desc) {
+        var handler = window.StripeCheckout.configure({
+            key: 'pk_test_AcVYHno8m2zXni1DEdMDF2hL',
+            locale: 'auto',
+            token: function(token) {
+                var payload = {
+                    token: token,
+                    total: $scope.final,
+
+                }
+                appSrv.makePayment(payload).then(function(response) {
+                    console.log(response);
+                });
+            }
+        });
+
+        handler.open({
+            name: 'Jimmys\' Reptiles',
+            description: "Items",
+            amount: $scope.final
+        });
     }
 
 

@@ -53,13 +53,25 @@ angular.module('eStore').service('appSrv', function($http){
   this.updateCart = function (cart) {
       console.log("Service",cart)
       return $http
-      .put('/api/cart/' + cart[0].quantity).then(function(response){
-          console.log(response);
+      .put('/api/cart', cart).then(function(response){
+          console.log('update cart response:',response);
           return response;
       }).catch(err => console.log(err));
   }
 
-    
+
+//   this.postTotals = function () {
+//       console.log("total grabbed",total)
+//       return $http 
+//       .post("/api/cart").then(function(response){
+//           console.log(response)
+//           return response;
+//       }).catch(err => console.log(err));
+//   }
+
+    this.makePayment = function(payload) {
+        return $http.post('/api/payment', payload);
+    }
    
     
 

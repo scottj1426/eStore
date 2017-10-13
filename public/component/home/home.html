@@ -1,7 +1,10 @@
+<link rel="stylesheet" href="./styles.css/main.css">
 
-<h1>HOME</h1>
+
 <!-- check if user has an auth id (meaning its the user and not the error message) -->
 <!-- if no authid, display error, else display user info -->
+<div class="view">
+        <h1>HOME</h1>
 <h1 ng-if="!user.authid">{{user}}</h1>
 <div ng-if="user.authid">
     <h1>{{user.authid}}</h1>
@@ -11,5 +14,5 @@
 <a class="transition" ui-sref="login" ng-if="!user.authid"><span>login</span></a>
 <!-- Logout your user, if not user, button won't display -->
 <a class="transition" href="/auth/logout" ng-if="user.authid"><span>logout!</span></a>
-
+</div>
 

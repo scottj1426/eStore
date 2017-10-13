@@ -1,28 +1,38 @@
-
-Item Type: <input type="" ng-model="searchText.$">
-
-<div ng-repeat =" product in products| filter: searchText">
-
-       
+<link rel="stylesheet" href="./styles.css/inventory.css"> Item Type:
+<input type="" ng-model="searchText.$">
 
 
-   <div class="carti inv">
-       
-    <img ng-src="{{product.image}}" alt="">
-   
-        </div>
-        <h3 class="product-grid__name"><a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></h3>
-    <!-- {{product.name}} -->
-    <div>
-   
-     {{product.price}}
-     <label>
-            <input type="number" name="input" ng-model="product.quantity"
-                   min="0" max="99" required>
-         </label>
-     <!-- <input type="integer"  ng-model="product.quantity">  -->
-    <button ng-click="addToCart(product)">Add To Cart</button>
-   
+ <div>
+<h1 class="page-heading">Inventory</h1>
+</div>
+<div class="outerContainer">
+
+    <div class="filterContainer">
+    
     </div>
+<div class="container">
+<div ng-repeat=" product in products| filter: searchText" class="tile">
 
+    <div class="inStock">
+        <div>
+            <img ng-src="{{product.image}}" alt="">
+        </div>
+        <h3 class="product-grid__name">
+            <a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></h3>
+        <div>
+            <div>
+                <h4> Number in Stock: {{product.instock}}</h4>
+            </div>
+
+            {{product.price}}
+            <label>
+                <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
+            </label>
+            <!-- <input type="integer"  ng-model="product.quantity">  -->
+            <button ng-click="addToCart(product)">Add To Cart</button>
+
+        </div>
+    </div>
+</div>
+</div>
 </div>

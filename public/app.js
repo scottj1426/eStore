@@ -36,10 +36,10 @@ angular.module('eStore', ['ui.router'])
       },
       controller: "shopCtrl"
       })
-      .state("Checkout", {
-        url: "/Checkout",
-        templateUrl: "/component/checkout/checkout.html"
-      })
+      // .state("Checkout", {
+      //   url: "/Checkout",
+      //   templateUrl: "/component/checkout/checkout.html"
+      // })
       .state("Profile", {
         url: "/Profile",
         templateUrl: "/component/profile/profile.html"
@@ -47,6 +47,7 @@ angular.module('eStore', ['ui.router'])
       .state("item", {
         url: "/products/:id",
         templateUrl: "/component/itemDetails/itemDetails.html",
+      
         controller: "itemDetailsCtrl"
       })
       

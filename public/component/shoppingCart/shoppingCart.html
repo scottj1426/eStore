@@ -1,76 +1,71 @@
-<link rel="stylesheet" href="./styles.css/strip.css">
+<link rel="stylesheet" href="./styles.css/main.css">
 
+<div class="headerBar">
+    <h1> Shopping Cart</h1>
+</div>
 
-<div ng-repeat="item in cart track by item.id" class="cart-container">
-    <!-- <button ng-click="clearCart(cart)">Empty Cart</button> -->
-    <div class="cart">
-        <div class="cartdiv">
-            <img ng-src="{{item.image}}" alt="">
+<div class="page-content">
+    <div class="cartBox">
+        <div class="checkoutBox" >
+            <div class="cart">
+                total: {{total | number:2}}
+            </div>
+            <div class="cart">
+                tax: {{tax | number:2}}
+            </div>
+            
+            <div class="cart">
+                total plus tax: {{final | number:2}}
+            </div>
+            <div class="cart totals">
+                <button ng-click="updateCart(cart); reload()">Update Cart</button>
+                <button ng-click="clearCart(cart); reload()">Clear Cart</button>
+                <button type="button" ng-click="openPayment()">CLICK ME FOR PAY</button>
+            </div>
         </div>
-
-        <div class="cartdiv">
-            {{item.name}}
+    </div>
+    
+    <div class="list-container">
+        <div ng-repeat="item in cart track by item.id" class="cart-container">
+            <div class="cart">
+                <div class="cartdiv">
+                    <img ng-src="{{item.image}}" alt="">
+                </div>
+                
+                <div class="cartdiv">
+                    {{item.name}}
+                </div>
+                
+                <div class="cartdiv">
+                    {{item.price}}
+                </div>
+                
+                <label class="cartdiv">
+                    <input type="number" name="input" ng-model="item.quantity" min="0" max="99" required>
+                </label>
+                <button ng-click="deleteFromCart(item.id)" class="cartdiv">Remove From Cart</button>
+            </div>
         </div>
-
-        <div class="cartdiv">
-            {{item.price}}
-        </div>
-
-        <label class="cartdiv">
-            <input type="number" name="input" ng-model="item.quantity" min="0" max="99" required>
-        </label>
-        <button ng-click="deleteFromCart(item.id)" class="cartdiv">Remove From Cart</button>
     </div>
 </div>
 
-<div></div>
-<div class="cart">
-    total: {{total | number:2}}
-</div>
-<div class="cart">
-    tax: {{tax | number:2}}
-</div>
 
-<div class="cart">
-    total plus tax: {{final | number:2}}
-</div>
+<!-- <div class="checkoutBox" >
+    <div class="cart">
+        total: {{total | number:2}}
+    </div>
+    <div class="cart">
+        tax: {{tax | number:2}}
+    </div>
+
+    <div class="cart">
+        total plus tax: {{final | number:2}}
+    </div>
 </div>
 
 <div class="cart totals">
     <button ng-click="updateCart(cart); reload()">Update Cart</button>
     <button ng-click="clearCart(cart); reload()">Clear Cart</button>
-    <div>
-
-    <div class="col-md-6 text-center">
-        <h1 class="display-3 mt-3 pt-5">
-     
-        <!-- <form action="/charge" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="{{stripePublishableKey}}"
-            data-amount="2500"
-            data-name="Jimmy's Reptiles"
-            data-description="Rpetile Store"
-            data-image="/img/marketplace.png"
-            data-locale="auto">
-          </script>
-          <script>
-            // Hide default stripe button
-            document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
-          </script>
-          <button type="submit" class="btn btn-outline-dark text-white btn-lg">Checkout</button>
-    </form> -->
     <button type="button" ng-click="openPayment()">CLICK ME FOR PAY</button>
-</div>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-</div>
+    </div>
+</div> -->

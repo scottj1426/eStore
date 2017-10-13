@@ -1,14 +1,11 @@
 angular
 .module("eStore")
 .controller("itemDetailsCtrl", function($scope, $stateParams, appSrv) {
-  
+  $scope.test ="test"
   console.log($stateParams)
-  $scope.getData = function() {
     appSrv.getItem($stateParams.id).then(response => {
       $scope.details = response[0];
-      console.log(response)
+      console.log($scope.details)
     });
-  };
 
-$scope.getData();
 });

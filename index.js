@@ -6,7 +6,7 @@ const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-conncetionString = 'postgres://JamesScott@localhost/JamesScott';// 
+conncetionString = 'postgres://JamesScott@localhost/JamesScott'; 
 // const keys = require('./config/keys');
 // const stripe = require('stripe')(keys.stripeSecretKey);
 
@@ -53,6 +53,7 @@ app.get('/', (req, res) => {
 app.post('/api/payment', (req, res) => {
   console.log(req.body);
   const amount = Math.round(req.body.total,4);
+  // console(req.body)
   const { id, email } = req.body.token;
   const cardId = req.body.token.card.id;
   

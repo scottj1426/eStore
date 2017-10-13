@@ -64,7 +64,7 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
             token: function(token) {
                 var payload = {
                     token: token,
-                    total: $scope.final,
+                    total: $scope.final * 100,
 
                 }
                 appSrv.makePayment(payload).then(function(response) {
@@ -76,7 +76,7 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
         handler.open({
             name: 'Jimmys\' Reptiles',
             description: "Items",
-            amount: $scope.final
+            amount: $scope.final * 100
         });
     }
 

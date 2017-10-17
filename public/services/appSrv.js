@@ -16,14 +16,24 @@ angular.module('eStore').service('appSrv', function($http){
         })
     }
 
-    this.addToCart = function(product) {
-        console.log("appSrv", product)
+    this.addToCart = function(product,authid) {
+        console.log("appSrv",product)
         return $http 
         .post('api/cart', {product}).then(function(response){
-            console.log(response)
+            console.log("appSrv",response)
             return response.data; 
         })
     }
+
+    this.addToCartById = (details) => {
+        console.log("add to cart by id", details)
+        return $http 
+        .post('api/item', details).then(function(response){
+            console.log("appSrv",response)
+            return response.data; 
+        })
+    }
+
     this.getCart = function() {
     
         return $http 
@@ -71,6 +81,23 @@ angular.module('eStore').service('appSrv', function($http){
 
     this.makePayment = function(payload) {
         return $http.post('/api/payment', payload);
+    }
+
+    this.getAuthid = function(){
+        return $http.get('/auth/me')
+        console.log(response)
+    }
+
+    this.cartToOrders = function(cart) {
+        return $http.post('/api/orders', cart)
+    }
+
+    this.getOrders = function(){
+        return $http.get('/api/orders/')
+    }
+
+    this.deleteCart = function(cart){
+        return $http.delete('/api/deletecart')
     }
    
     

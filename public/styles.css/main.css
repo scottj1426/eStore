@@ -9,6 +9,7 @@
 }
 .view{
     padding-top: 3%;
+
 }
 
 .carti img{
@@ -105,9 +106,16 @@
     padding-top: 20%;
 }
 .item-container{
-    width:45%;
+    width:50%;
+    display: flex;
+    flex-flow: row;
     align-items: center;
     justify-content: right;
     margin: 0 auto;
     
+}
+
+.item-sub-container{
+
+
 }

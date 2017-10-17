@@ -1,15 +1,22 @@
-<link rel="stylesheet" href="./styles.css/inventory.css"> Item Type:
-<input type="" ng-model="searchText.$">
+<link rel="stylesheet" href="./styles.css/inventory.css"> 
+
+<!-- Item Type:
+<input  class="view" type="" ng-model="searchText.$"> -->
 
 
  <div>
-<h1 class="page-heading">Inventory</h1>
+<h1 class="page-heading view">Inventory</h1>
+
 </div>
 <div class="outerContainer">
 
     <div class="filterContainer">
-    
+        <div>
+            Item Type:
+            <input  class="views" type="" ng-model="searchText.$">
+        </div>
     </div>
+    <div class="item-container">
 <div class="container">
 <div ng-repeat=" product in products| filter: searchText" class="tile">
 
@@ -17,8 +24,10 @@
         <div>
             <img ng-src="{{product.image}}" alt="">
         </div>
-        <h3 class="product-grid__name">
-            <a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></h3>
+
+       
+        <p class="product-grid__name titleName">
+            <a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></p>
         <div>
             <div>
                 <h4> Number in Stock: {{product.instock}}</h4>
@@ -33,6 +42,7 @@
 
         </div>
     </div>
+</div>
 </div>
 </div>
 </div>

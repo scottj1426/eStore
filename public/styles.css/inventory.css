@@ -24,12 +24,17 @@
   flex-wrap: wrap;
  justify-content: space-between;
  width:80%;
+ padding-left: 22%;
+ padding-right: 2%;
 
+}
+.titleName {
+    height: 4em;
 }
 
 .tile{
-    height: 60%;
-    width: 19%;
+    height: 60% !important;
+    width: 19% !important;
 }
 .header{
     width: 10%;
@@ -41,4 +46,18 @@
     bottom: 0;
     left: 0;
     background-color:white;
+}
+.views{
+    margin-top: 30%;
+
+}
+.view{
+    padding-top: 3%;
+
+}
+input{
+    font-size: 18px;
+}
+.item-container{
+width:100%;
 }

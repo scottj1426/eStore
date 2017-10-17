@@ -1,20 +1,26 @@
-<link rel="stylesheet" href="./styles.css/main.css">
+
 
 
 <div class="item-container">
-<div class="view">
-  <div class="detailImg">
-    <img ng-src="{{details.image}}">
+  <div class="view">
+    <div class="detailImg">
+      <img ng-src="{{details.image}}">
+    </div>
+
+
+
+
+    <div class="item-sub-container">
+      {{details.price}}
+    </div>
+
+    <div>
+      Currently we have {{details.instock}} {{details.name}}'s in stock'
+    </div>
+    <label>
+        <input type="number" name="input" ng-model="details.quantity" min="0" max="99" required>
+    </label>
+
+    <button ng-click="addToCartById(details)">Add To Cart</button>
+    
   </div>
-
-
-
-
-<div>
-    {{details.price}}
-  </div>
-
-  <div>
-    {{details.instock}}
-  </div>
-</div>

@@ -51,9 +51,9 @@ app.get('/', (req, res) => {
 
 // Charge Route
 app.post('/api/payment', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const amount = Math.round(req.body.total,4);
-  // console(req.body)
+  
   const { id, email } = req.body.token;
   const cardId = req.body.token.card.id;
   
@@ -70,6 +70,7 @@ app.post('/api/payment', (req, res) => {
   }))
   .then(charge => res.json({message: 'Successful Message'}));
 });
+
 
 
 
@@ -100,20 +101,20 @@ passport.use(new Auth0Strategy({
   callbackURL:  '/auth/callback'
  }, (accessToken, refreshToken, extraParams, profile, done) => {
    //Find user in database
-   console.log(profile.id);
+  //  console.log(profile.id);
    
    const db = app.get('db');
    // .then means this is a promise
    db.getUserByAuthId([profile._json.sub]).then((user, err) => {
-       console.log('INITIAL: ', user);
+      //  console.log('INITIAL: ', user);
      if (!user[0]) { //if there isn’t a user, we’ll create one!
-       console.log('CREATING USER');
+      //  console.log('CREATING USER');
        db.createUserByAuth([profile._json.sub]).then((user, err) => {
-         console.log('USER CREATED', user[0]);
+        //  console.log('USER CREATED', user[0]);
          return done(err, user[0]); // GOES TO SERIALIZE USER
        })
      } else { //when we find the user, return it
-       console.log('FOUND USER', user[0]);
+      //  console.log('FOUND USER', user[0]);
        return done(err, user[0]);
      }
    });
@@ -127,7 +128,7 @@ passport.serializeUser((user, done) => {
 
 // pull user from session for manipulation
 passport.deserializeUser((user, done) => {
-  console.log(user);
+  // console.log(user);
   done(null, user);
 });
 
@@ -146,12 +147,28 @@ passport.deserializeUser((user, done) => {
       .then(products => res.json(products));
   });
 
-  app.post('/api/cart/', (req, res) => {
-    
+  app.post('/api/cart', (req, res) => {
+    console.log("inde.js", req.body)
+    const { name, price, quantity, image} = req.body.product;
+    const authid = req.session.passport.user.authid;
+    console.log(name, price, quantity)
     req.app
       .get('db')
-      .addToCart([req.body.product.name, req.body.product.price, req.body.product.quantity,req.body.product.image])
+      .addToCart([name, price, quantity, image,authid])
       .then(products => res.json(products));
+  
+  });
+
+  app.post('/api/item', (req, res) => {
+    console.log("inde.js", req.body)
+    const { name, price, quantity, image} = req.body;
+    const authid = req.session.passport.user.authid;
+    console.log(name, price, quantity)
+    req.app
+      .get('db')
+      .addToCart([name, price, quantity, image,authid])
+      .then(products => res.json(products));
+  
   });
 
 
@@ -190,19 +207,43 @@ passport.deserializeUser((user, done) => {
 
   app.put('/api/cart', (req, res) => {
     let items = req.body
-    console.log("update cart body:", items)
+    // console.log("update cart body:", items)
 
     const promise = items.map(item => {
-      console.log("each item:", item)
+      // console.log("each item:", item)
       const response = []
       response.push( req.app.get( 'db' ).updateCart([ item.quantity, item.id ]) )                  
-      console.log("response array:", response)
+      // console.log("response array:", response)
     }); 
 
     Promise.all(promise)
         .then( items => {
-          console.log("promise all", items)
+          // console.log("promise all", items)
     })
+  });
+
+  app.post('/api/orders', async (req, res) => {
+    // const { name, price, quantity, image} = req.body.product;
+    console.log(req.body);
+    const authid = req.session.passport.user.authid;
+    for (let i = 0; i < req.body.length; i++) {
+      let curr = req.body[i];
+      await req.app
+        .get('db')
+        .cartToOrders([curr.name, curr.price, curr.quantity, curr.image, authid,new Date()])
+    }
+    res.json({message: 'Successfully Inserted'});
+  
+  });
+
+  app.get('/api/orders/', (req, res) => {
+    const authid = req.session.passport.user.authid;
+    req.app
+      .get('db')
+      .getOrders(authid)
+      .then(orders => {
+        res.json(orders)
+      });
   });
 
 
@@ -232,11 +273,17 @@ app.get('/auth/logout', (req, res) => {
 });
 
 
+
+
 //port listener
 app.listen(port, ()=> {
     console.log(`LISTENING ON PORT: ${port}`);
 });
 
+// connect cart to users 
+// on order sumbit, extrct user info from cart, pass to order table
+// destroy references to specific user on cart table 
+//just get user orders by auth id 
 
 
 

@@ -6,7 +6,7 @@
 
 <div class="page-content">
     <div class="cartBox">
-        <div class="checkoutBox" >
+        <div class="checkoutBox view" >
             <div class="cart">
                 total: {{total | number:2}}
             </div>
@@ -20,7 +20,7 @@
             <div class="cart totals">
                 <button ng-click="updateCart(cart); reload()">Update Cart</button>
                 <button ng-click="clearCart(cart); reload()">Clear Cart</button>
-                <button type="button" ng-click="openPayment()">CLICK ME FOR PAY</button>
+                <button type="button" ng-click="openPayment(); cartToOrders(cart); clearCart(cart); ">CLICK ME FOR PAY</button>
             </div>
         </div>
     </div>

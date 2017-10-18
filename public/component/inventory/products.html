@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./styles.css/inventory.css"> 
+
 
 <!-- Item Type:
 <input  class="view" type="" ng-model="searchText.$"> -->
@@ -11,14 +11,35 @@
 <div class="outerContainer">
 
     <div class="filterContainer">
+
         <div>
             Item Type:
             <input  class="views" type="" ng-model="searchText.$">
         </div>
+
+            <div class="select" >
+        <select name="" id="" ng-model="searchText.type">
+                <option value="Reptile">Reptile</option>
+                <option value="Supplies">Supplies</option> 
+                <option value="Mammal">Mammal</option>     
+            </select>
+        </div>
+
+        <div class="select" >
+                <select name="" id="" ng-model="searchText.itemType">
+                        <option value="Python">Python</option>
+                        <option value="Boa">Boa</option> 
+                        <option value="Lizard">Lizard</option>     
+                    </select>
+                </div>
+
+      
     </div>
     <div class="item-container">
 <div class="container">
 <div ng-repeat=" product in products| filter: searchText" class="tile">
+
+       
 
     <div class="inStock">
         <div>
@@ -38,7 +59,8 @@
                 <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
             </label>
             <!-- <input type="integer"  ng-model="product.quantity">  -->
-            <button ng-click="addToCart(product)">Add To Cart</button>
+            <!-- <button ng-click="addToCart(product)"></button> -->
+            <md-button class="md-raised btn1" ng-click="addToCart(product)">Add To Cart</md-button>
 
         </div>
     </div>

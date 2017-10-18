@@ -63,7 +63,7 @@ app.post('/api/payment', (req, res) => {
   })
   .then(customer => stripe.charges.create({
     amount,
-    description: 'Web Development Ebook',
+    description: 'Jimmy\'s Reptiles',
     currency: 'usd',
     customer: customer.id,
     card: cardId

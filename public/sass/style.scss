@@ -1,0 +1,30 @@
+$c-black: #E5E6F9 ;
+$c-white: #393A3E ;
+$c-blue: #354EC5 ;
+$c-red: #f13738 ; 
+$white: #FFFFFF ;
+$offwhite: #F5F1ED ;
+$shadow: #BCB8E6 ;
+$blue: #459DFA ;
+
+
+// Navbar
+$c-Navbar: $c-white;
+$c-Navbar-bg: $offwhite;
+$l-Navbar-brandOffset-sm: 0.6rem;
+$l-Navbar-menuOffset-sm: 14%;
+$l-Navbar-itemLineHeight: 2.8rem;
+$l-Navbar-itemPaddingX: 1.4rem;
+$l-Navbar-itemPaddingY: 1.6rem;
+$l-Navbar-size: $l-Navbar-itemLineHeight + $l-Navbar-itemPaddingY * 2;
+
+
+
+ body{
+     background-color: $white; 
+ }
+
+ .sidenavdemoCustomSidenav{
+     z-index: 999;
+     position: fixed
+ }

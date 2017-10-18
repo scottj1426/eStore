@@ -1,4 +1,4 @@
-angular.module('eStore', ['ui.router'])
+angular.module('eStore', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
 
 
 .config(function($stateProvider, $urlRouterProvider) {

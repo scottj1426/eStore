@@ -59,6 +59,7 @@
 
 .list-container {
     margin: 0;
+    height: 100%;
 }
 
 .cart {
@@ -90,14 +91,16 @@
 .checkoutBox{
     width:25%;
     height: 100%;
-   
     /* position: fixed; */
     position: absolute;
-    top: 100px;; 
+    top: 163px;; 
     /* bottom: 0; */
     right: 0; 
-    background-color:gray;
+    background-color: #F2F2F2;
     padding-top: 3%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .detailImg img{
     margin: 0;
@@ -118,4 +121,8 @@
 .item-sub-container{
 
 
+}
+
+.totals{
+    width:80%;
 }

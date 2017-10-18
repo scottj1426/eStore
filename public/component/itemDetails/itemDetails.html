@@ -1,26 +1,22 @@
+<div class="outer">
 
+    <div class="itempic">
+        <img ng-src="{{details.image}}" alt="">
+    </div>
 
+    <div class="itemDetails">
 
-<div class="item-container">
-  <div class="view">
-    <div class="detailImg">
-      <img ng-src="{{details.image}}">
+        <h1>{{details.name}}</h1>
+           {{details.price}}
+           <br>
+            {{details.description}}
+           <br>
+            {{details.instock}}
+      
     </div>
 
 
 
 
-    <div class="item-sub-container">
-      {{details.price}}
-    </div>
 
-    <div>
-      Currently we have {{details.instock}} {{details.name}}'s in stock'
-    </div>
-    <label>
-        <input type="number" name="input" ng-model="details.quantity" min="0" max="99" required>
-    </label>
-
-    <button ng-click="addToCartById(details)">Add To Cart</button>
-    
-  </div>
+</div>

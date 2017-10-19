@@ -3,6 +3,9 @@
  padding: 0;
 
 }
+a:hover {
+    text-decoration: underline;
+}
 
 .page-content {
     display: flex;
@@ -125,4 +128,13 @@
 
 .totals{
     width:80%;
+}
+
+
+
+.close{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
 }

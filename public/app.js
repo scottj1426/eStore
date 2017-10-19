@@ -1,4 +1,4 @@
-angular.module('eStore', ['ui.router'])
+angular.module('eStore', ['ui.router', 'ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
 
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -41,8 +41,9 @@ angular.module('eStore', ['ui.router'])
       //   templateUrl: "/component/checkout/checkout.html"
       // })
       .state("Profile", {
-        url: "/Profile",
-        templateUrl: "/component/profile/profile.html"
+        url: "/Profile/",
+        templateUrl: "/component/profile/profile.html",
+        controller: "profileCtrl"
       })
       .state("item", {
         url: "/products/:id",

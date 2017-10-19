@@ -7,7 +7,11 @@ appSrv.getData().then(response => {
         appSrv.addToCart(product).then(response => {
         })
     }
-
+   //get request to pull authid from users
+   appSrv.getAuthid().then(function(response){
+    console.log(response.data.authid)
+    $scope.authid = response.data.authid;
+})
     
      
  })

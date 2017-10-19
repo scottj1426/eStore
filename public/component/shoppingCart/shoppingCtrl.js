@@ -71,6 +71,7 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
                     console.log(response);
                 });
             }
+
         });
 
         handler.open({
@@ -80,7 +81,18 @@ angular.module('eStore').controller('shopCtrl', function($scope, $state, appSrv,
         });
     }
 
+    // //get request to pull authid from users
+    // appSrv.getAuthid().then(function(response){
+    //     console.log(response.data)
+    //     $scope.authid = response.data.authid;
+    // })
 
+
+    $scope.cartToOrders = function(cart){
+        appSrv.cartToOrders(cart).then(response => {
+            $scope.orders  = response; 
+        }).catch(err => console.log(err));
+    }
 
 
 

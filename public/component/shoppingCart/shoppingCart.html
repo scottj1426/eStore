@@ -20,9 +20,16 @@
             </div>
         </div>
             <div class="cart totals">
-                <button ng-click="updateCart(cart); reload()">Update Cart</button>
-                <button ng-click="clearCart(cart); reload()">Clear Cart</button>
-                <button type="button" ng-click="openPayment(); cartToOrders(cart); clearCart(cart); ">CLICK ME FOR PAY</button>
+                    <!-- <md-button ng-click="updateCart(cart); reload()">Update</md-button>  -->
+                    <br>
+                <!-- <button ng-click="updateCart(cart); reload()">Update Cart</button> -->
+                <!-- <md-button ng-click="clearCart(cart); reload()">Clear</md-button>  -->
+                <br>
+                
+                <!-- <button ng-click="clearCart(cart); reload()">Clear Cart</button> -->
+                <md-button ng-click="openPayment(); cartToOrders(cart); clearCart(cart);">Pay</md-button>
+                
+                <!-- <button type="button" ng-click="openPayment(); cartToOrders(cart); clearCart(cart); ">CLICK ME FOR PAY</button> -->
             </div>
         </div>
     </div>
@@ -34,9 +41,12 @@
                     <img ng-src="{{item.image}}" alt="">
                 </div>
                 
+                
                 <div class="cartdiv">
                         <a ui-sref="item({id: item.id})"><!--Title-->{{item.name}}</a>
+                
                 </div>
+               
                 
                 <div class="cartdiv">
                     {{item.price}}
@@ -45,17 +55,22 @@
                 <label class="cartdiv">
                     <input type="number" name="input" ng-model="item.quantity" min="0" max="99" required>
                 </label>
+                <hr>
                 
                 <!-- <button ng-click="deleteFromCart(item.id)" class="cartdiv">Remove From Cart</button> -->
                 <svg ng-click="deleteFromCart(item.id)" class="cartdiv" fill="#000000" height="36" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 13H5v-2h14v2z"/>
                     <path d="M0 0h24v24H0z" fill="none"/>
                 </svg>
-            
             </div>
         </div>
     </div>
 </div>
+<div class="cartControl">
+<md-button class="" ng-click="updateCart(cart); reload()">Update</md-button> 
+<md-button ng-click="clearCart(cart); reload()">Clear</md-button> 
+</div>
+
 
 
 <!-- <div class="checkoutBox" >

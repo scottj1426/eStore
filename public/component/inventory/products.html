@@ -5,7 +5,8 @@
 
 
  <div>
-<h1 class="page-heading view">Inventory</h1>
+    
+<h1 class="page-heading view head">Inventory</h1>
 
 </div>
 <div class="outerContainer">
@@ -37,9 +38,9 @@
     </div>
     <div class="item-container">
 <div class="container">
-<div ng-repeat=" product in products| filter: searchText" class="tile">
+<div ng-repeat="product in products| filter: searchText" class="tile">
 
-       
+       <!--  -->
 
     <div class="inStock">
         <div>
@@ -47,8 +48,8 @@
         </div>
 
        
-        <p class="product-grid__name titleName">
-            <a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></p>
+        <h4 class="product-grid__name titleName">
+            <a ui-sref="item({id: product.id})"><!--Title-->{{product.name}}</a></h4>
         <div>
             <div>
                 <h4> Number in Stock: {{product.instock}}</h4>

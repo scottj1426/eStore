@@ -87,8 +87,8 @@ a:hover {
     display: block;
     z-index: 999;
     height: 60px;
-    padding-top: 40px;;
-    background-color: red;
+    margin-top: 50px;;
+    /* background-color: #D80000; */
     color: white;
 }
 .checkoutBox{
@@ -96,7 +96,7 @@ a:hover {
     height: 100%;
     /* position: fixed; */
     position: absolute;
-    top: 163px;; 
+    top: 110px;; 
     /* bottom: 0; */
     right: 0; 
     background-color: #F2F2F2;
@@ -112,7 +112,7 @@ a:hover {
     padding-top: 20%;
 }
 .item-container{
-    width:50%;
+    /* width:50%; */
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -137,4 +137,25 @@ a:hover {
     flex-flow: row;
     align-items: center;
     justify-content: flex-end;
+    background-color: white;
+
+}
+
+.cartControl{
+    display:flex;
+    flex-row: row;
+    justify-content: flex-start;
+}
+
+.md-button{
+   
+    color: white;
+}
+.login{
+  
+}
+ ul li a{
+  text-decoration: none;
+  color: black;
+  list-style: none;
 }

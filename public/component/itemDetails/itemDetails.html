@@ -1,22 +1,48 @@
-<div class="outer">
+<!-- <div class="outer"> -->
 
-    <div class="itempic">
-        <img ng-src="{{details.image}}" alt="">
+    <!-- <div class="itempic"> -->
+        <!-- <img ng-src="{{details.image}}" alt="">
     </div>
 
     <div class="itemDetails">
 
         <h1>{{details.name}}</h1>
-           {{details.price}}
+           ${{details.price}}
            <br>
             {{details.description}}
            <br>
-            {{details.instock}}
+            Currently in Stock we have {{details.instock}}. 
       
+    </div> -->
+<div class="itemCards">
+<div>
+    <md-content class="md-padding" >
+            <div layout="column" layout-gt-xs="row" >
+               <md-card flex flex-gt-xs="60">
+                   <md-card-content>
+                         <img class="itemImage" ng-src="{{details.image}}" alt="">
+                   </md-card-content> 
+               </md-card>
+               <md-card flex >
+                   <md-card-content>
+                        <h2>{{details.name}}</h2>
+                        <h3>${{details.price}}</h3>
+                        <br>
+                         {{details.description}}
+                        <br>
+                         Currently in Stock we have {{details.instock}}. <br>
+                         <div class="singleAdd">
+                         <md-button class="md-raised btn1" ng-click="addToCartById(details)">Add To Cart</md-button>
+                        </div>
+                   </md-card-content>
+               </md-card>
+           </div>
+       </md-content>
     </div>
-
-
-
-
-
 </div>
+
+
+
+
+
+<!-- </div> -->

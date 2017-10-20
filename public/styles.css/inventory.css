@@ -35,8 +35,8 @@
 }
 
 .tile {
-  height: 40% !important;
-  width: 23% !important;
+  height: 450px !important;
+  width: 300px !important;
   /* border: 2px solid black; */
   margin: 1%;
   background-color: white;
@@ -51,12 +51,14 @@
 .header {
   width: 10%;
 }
+
 .filterContainer {
   padding: 0;
   width: 100vw;
   background-color: white;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   height: 100px;
@@ -195,5 +197,4 @@ itemcards {
   height: 100px;
 }
 
-.logo {
-}
+@media ()

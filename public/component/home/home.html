@@ -4,12 +4,68 @@
 <!-- check if user has an auth id (meaning its the user and not the error message) -->
 <!-- if no authid, display error, else display user info -->
 <div class="view">
-<h1 ng-if="!user.authid">{{user}}</h1>
-<div ng-if="user.authid">
-</div>
-<!-- Go to Login View -->
-<a class="transition" ui-sref="login" ng-if="!user.authid"><span>login</span></a>
-<!-- Logout your user, if not user, button won't display -->
-<a class="transition" href="/auth/logout" ng-if="user.authid"><span>logout!</span></a>
+    <h1 ng-if="!user.authid">{{user}}</h1>
+    <div ng-if="user.authid">
+    </div>
+    <!-- Go to Login View -->
+    <a class="transition" ui-sref="login" ng-if="!user.authid"></a>
+    <!-- Logout your user, if not user, button won't display -->
+    <a class="transition" href="/auth/logout" ng-if="user.authid">
+        <span>logout!</span>
+    </a>
 </div>
 
+
+<div class="aboutContainer">
+    <div class="aboutPicture">
+                <BUTTON>SHOP</BUTTON>
+            </div>
+    </div class="about">
+
+    <div>
+        <h2>About Us</h2>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at
+            its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+            to using 'Content here, content here', making it look like readable English. Many desktop publishing packages
+            and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover
+            many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes
+            on purpose (injected humour and the like). It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+            normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+            English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
+            and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+            over the years, sometimes by accident, sometimes on purpose (injected humour and the like). It is a long established
+            fact that a reader will be distracted by the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content
+            here, content here', making it look like readable English. Many desktop publishing packages and web page editors
+            now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still
+            in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected
+            humour and the like). It is a long established fact that a reader will be distracted by the readable content
+            of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+            of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop
+            publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+            ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes
+            by accident, sometimes on purpose (injected humour and the like).</p>
+    </div>
+
+</div class="contact">
+
+    <div>
+        <h2>Contact Us</h2>
+        <p>humour and the like). It is a long established fact that a reader will be distracted by the readable content
+        of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+        of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop
+        publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+        ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes
+        by accident, sometimes on purpose (injected humour and the like).</p>
+    </div>
+
+
+    <div class="footer">
+            <footer>
+                    <p>Posted by: Hege Refsnes</p>
+                    <p>Contact information: <a href="mailto:someone@example.com">
+                    someone@example.com</a>.</p>
+                  </footer>
+    </div>
+</div>

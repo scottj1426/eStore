@@ -28,6 +28,10 @@
                 
                 <!-- <button ng-click="clearCart(cart); reload()">Clear Cart</button> -->
                 <md-button ng-click="openPayment(); cartToOrders(cart); clearCart(cart);">Pay</md-button>
+                <div class="cartControl">
+                        <md-button class="" ng-click="updateCart(cart); reload()">Update</md-button> 
+                        <md-button ng-click="clearCart(cart); reload()">Clear</md-button> 
+                        </div>
                 
                 <!-- <button type="button" ng-click="openPayment(); cartToOrders(cart); clearCart(cart); ">CLICK ME FOR PAY</button> -->
             </div>
@@ -43,7 +47,8 @@
                 
                 
                 <div class="cartdiv">
-                        <a ui-sref="item({id: item.id})"><!--Title-->{{item.name}}</a>
+                    
+                        <a>{{item.name}}</a>
                 
                 </div>
                
@@ -66,10 +71,10 @@
         </div>
     </div>
 </div>
-<div class="cartControl">
+<!-- <div class="cartControl">
 <md-button class="" ng-click="updateCart(cart); reload()">Update</md-button> 
 <md-button ng-click="clearCart(cart); reload()">Clear</md-button> 
-</div>
+</div> -->
 
 
 

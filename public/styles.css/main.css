@@ -189,5 +189,6 @@ footer{
 }
 .heroImage{
   background-image: url("../images/animal-1866944_1280.jpg");
-  height: 700px;
+  height: 350px;
+  background-position: center;
 }

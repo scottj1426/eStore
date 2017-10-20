@@ -11,75 +11,50 @@
 
 
 </div>
-<div class="outerContainer">
-<!-- 
-    <div class="filterContainer">
+<!-- <div class="outerContainer"> -->
 
-        <div>
-            Item Type:
-            <input class="views" type="" ng-model="searchText.$">
-        </div>
+<div class="filterContainer">
 
-        <div class="select">
-            <select name="" id="" ng-model="searchText.type">
-                <option value="Reptile">Reptile</option>
-                <option value="Supplies">Supplies</option>
-                <option value="Mammal">Mammal</option>
-            </select>
-        </div>
+    <div>
+        Item Type:
+        <input class="" type="" ng-model="searchText.$">
+    </div>
 
-        <div class="select">
-            <select name="" id="" ng-model="searchText.itemType">
-                <option value="Python">Python</option>
-                <option value="Boa">Boa</option>
-                <option value="Lizard">Lizard</option>
-            </select>
-        </div>
+    <div class="">
+        <select name="" id="" ng-model="searchText.type">
+            <option value="Reptile">Reptile</option>
+            <option value="Supplies">Supplies</option>
+            <option value="Mammal">Mammal</option>
+        </select>
+    </div>
+
+    <div class="">
+        <select name="" id="" ng-model="searchText.itemType">
+            <option value="Python">Python</option>
+            <option value="Boa">Boa</option>
+            <option value="Lizard">Lizard</option>
+        </select>
+    </div>
 
 
-    </div> -->
-    <div class="item-container">
-        <div class="container">
+</div>
+<div class="item-container">
+    <div class="container">
+        <div ng-repeat="product in products| filter: searchText" class="tile">
 
-    <div class="filterContainer">
-            
-                    <div>
-                        Item Type:
-                        <input class="views" type="" ng-model="searchText.$">
-                    </div>
-            
-                    <div class="select">
-                        <select name="" id="" ng-model="searchText.type">
-                            <option value="Reptile">Reptile</option>
-                            <option value="Supplies">Supplies</option>
-                            <option value="Mammal">Mammal</option>
-                        </select>
-                    </div>
-            
-                    <div class="select">
-                        <select name="" id="" ng-model="searchText.itemType">
-                            <option value="Python">Python</option>
-                            <option value="Boa">Boa</option>
-                            <option value="Lizard">Lizard</option>
-                        </select>
-                    </div>
-            
-            
+
+
+            <div class="inStock">
+                <div>
+                    <img ng-src="{{product.image}}" alt="">
                 </div>
-            <div ng-repeat="product in products| filter: searchText" class="tile">
 
-
-
-                <div class="inStock">
-                    <div>
-                        <img ng-src="{{product.image}}" alt="">
-                    </div>
-
-
+                <div id="tile-content">
                     <h4 class="product-grid__name titleName">
                         <a class="name" ui-sref="item({id: product.id})">
                             <!--Title-->{{product.name}}</a>
                     </h4>
+                    <md-divider></md-divider>
                     <div>
                         <div>
                             <h4> Number in Stock: {{product.instock}}</h4>
@@ -89,8 +64,8 @@
                         <label>
                             <input type="number" name="input" ng-model="product.quantity" min="0" max="99" required>
                         </label>
-                        <!-- <input type="integer"  ng-model="product.quantity">  -->
-                        <!-- <button ng-click="addToCart(product)"></button> -->
+
+
                         <div>
                             <md-button class="md-raised" ng-click="addToCart(product)" style="background-color: #75C87A;">Add To Cart</md-button>
                         </div>
@@ -100,3 +75,4 @@
         </div>
     </div>
 </div>
+<!-- </div> -->

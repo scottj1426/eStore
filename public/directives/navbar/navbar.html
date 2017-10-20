@@ -15,6 +15,7 @@
 <!-- <div layout="column" class="sidenavdemoCustomSidenav"> -->
 
 <div class="bar">
+  
   <md-button ng-click="toggleLeft()" class="md-raised">
 
     <svg fill="#000000" height="24" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
@@ -24,6 +25,11 @@
 
   </md-button>
 
+  <div class="logo">
+      <img src="../images/ardently.png" alt="">
+    </div>
+
+  <h1 id="page-title"></h1>
   <div ui-sref="ShoppingCart" class="ShoppingCart">
     <svg fill="#000000" height="48" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
       <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
@@ -54,7 +60,7 @@
           </md-button>
         </div>
 
-        <ul>
+        <ul class="list">
           <li>
             <link rel="stylesheet" href="./styles.css/main.css">
             <div class="login nav">
@@ -65,7 +71,7 @@
                 <span></span>
               </a>
             </div>
-            <a ui-sref="Login">Login</a>
+            <!-- <a ui-sref="Login">Login</a> -->
           </li>
           <li>
             <a ui-sref="Home">Home</a>
@@ -74,15 +80,15 @@
             <a ui-sref="Inventory">Inventory</a>
           </li>
           <li>
-            <a ui-sref="ShoppingCart" ng-init="total()">ShoppingCart</a>
+            <a ui-sref="ShoppingCart" ng-init="total()">Shopping Cart</a>
           </li>
           <li>
             <a ui-sref="Profile">CustomerProfile</a>
           </li>
         </ul>
       </div>
-      <md-button ng-click="toggleLeft()" class="md-accent">
-        Close this Sidenav
+      <md-button ng-click="toggleLeft()" class="">
+        Close
       </md-button>
     </md-content>
 

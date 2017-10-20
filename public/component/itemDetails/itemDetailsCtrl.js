@@ -5,7 +5,7 @@ angular
 
     appSrv.getItem($stateParams.id).then(response => {
       $scope.details = response[0];
-      console.log($scope.details)
+      console.log($scope.detail)
     });
     
 

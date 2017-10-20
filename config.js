@@ -5,7 +5,9 @@ module.exports = {
 
     db: {
         dbUSer: 'JamesScott',
-        database: 'JamesScott'
+        database: 'JamesScott',
+        conncetionString = 'postgres://oviibsnlkkbnwf:d2b774c98eccee91b1cef8d43a3e76d93f01b0b7352283af4759dc31c97aed85@ec2-54-235-250-15.compute-1.amazonaws.com:5432/dcc9j5kmcs4ico?ssl=true'; 
+        
     },
 
     auth0: {

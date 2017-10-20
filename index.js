@@ -6,7 +6,7 @@ const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-conncetionString = 'postgres://JamesScott@localhost/JamesScott'; 
+// conncetionString = 'postgres://JamesScott@localhost/JamesScott'; 
 // const keys = require('./config/keys');
 // const stripe = require('stripe')(keys.stripeSecretKey);
 
@@ -76,7 +76,7 @@ app.post('/api/payment', (req, res) => {
 
 
 
-massive(conncetionString).then(db => {
+massive(config.db.conncetionString).then(db => {
     app.set('db', db);
   });
 

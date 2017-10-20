@@ -7,8 +7,8 @@ const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 // conncetionString = 'postgres://JamesScott@localhost/JamesScott'; 
-// const keys = require('./config/keys');
-// const stripe = require('stripe')(keys.stripeSecretKey);
+ const keys = require('./config/keys');
+const stripe = require('stripe')(keys.stripeSecretKey);
 
 //require config here
 const { secret } = require('./config').session;

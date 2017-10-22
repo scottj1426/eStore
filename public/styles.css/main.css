@@ -97,7 +97,7 @@ body {
   height: 100%;
   /* position: fixed; */
   /* bottom: 0; */
-  background-color: #f2f2f2;
+  background-color: white;
   padding-top: 3%;
   display: flex;
   align-items: center;
@@ -152,20 +152,27 @@ ul li a {
   width: 50%;
 }
 .orderContainer {
-  padding-top: 5%;
-  align-items: center;
-  justify-content: space-around;
-  height: 100px;
-  overflow-y: scroll;
-  margin-top: 150px;
+  padding-top: 8%;
+  width: 100%;
+  background-color: white;
+  
+  
+  
 }
+
 .list {
   margin-top: 100px;
 }
 
 .about {
   width: 100%;
-  height: 100%;
+  height: 20%;
+  padding: 1%
+}
+.contaact{
+  width: 50%;
+  height: 20%;
+  padding: 1%
 }
 .aboutContainer {
   /* display: flex;  */
@@ -177,7 +184,8 @@ ul li a {
   height: 700px;
 }
 footer{
-    background-color: white;
+   
+    
 }
 .name{
     text-decoration: none;
@@ -188,4 +196,35 @@ footer{
   background-image: url("../images/animal-1866944_1280.jpg");
   height: 350px;
   background-position: center;
+}
+.orderContainerTable{
+width:70vw;
+margin:0 auto;
+/* background-color: white; */
+padding: 10px;
+box-shadow: 1px 1px 1px 1px #888888;
+
+}
+.orderContainerTable .one{width:40%}
+.orderContainerTable .two{width:10%}
+.orderContainerTable .three{width:15%}
+.orderContainerTable .five{width:24%}
+.orderContainerTable span{display:inline-block;}
+/* .orderContainerTable .one{width:40%} */
+
+.orderItems{
+  padding: 20px;
+  margin-top: 5px;
+background-color: white;
+
+  
+}
+.orderImage{
+  width: 100px;
+  height: 100px;
+}
+.Header{
+height: 5%;
+  background-color: #8ECF92;
+  border-radius: 5px;
 }

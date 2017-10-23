@@ -34,7 +34,10 @@
                          Currently in Stock we have {{details.instock}}. 
                          <br>
                          <br>
+                         
                          <div class="singleAdd">
+                                <input type="number" name="input" ng-model="details.quantity" min="0" max="99" required>
+                                
                          <md-button class="md-raised btn1" ng-click="addToCartById(details)">Add To Cart</md-button>
                         </div>
                    </md-card-content>

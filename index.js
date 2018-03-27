@@ -6,7 +6,7 @@ const session = require('express-session');
 const cors = require('cors');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
-const dotenv = require('dotenv')
+
 //  conncetionString = 'postgres://JamesScott@localhost/JamesScott'; 
 //  const keys = require('./config/keys');
 // const stripe = require('stripe')(keys.stripeSecretKey);

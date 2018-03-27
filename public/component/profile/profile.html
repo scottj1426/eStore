@@ -1,14 +1,24 @@
-
 <div class="orderContainer">
-<div ng-repeat="order in orders">
 
-    
- <div class="orders">  
-{{order.name}}
-{{order.price}}
-{{order.date | date: 'medium' }}
+    <!-- <div>{{order.name}}</div>
+        <div>{{order.quantity}}</div>
+        <div>{{order.price}}</div> -->
+    <h1 class="Header">Order History</h1>  
+    <div class="orderContainerTable">
+        <div class="orderItems"ng-repeat="order in orders">
+            <img class="orderImage" ng-src="{{order.image}}" alt="">
+            <span class="one">{{order.name}}</span>
+            <span class="two">{{order.quantity}}</span>
+            <span class="three">${{order.price}}</span> <br>
+            <span class="five">{{order.date | date: 'medium' }}</span>
+            
+        </div>
+    </div>
+    <footer class="desktop">
+            
+                <h4>Website was developed by a student for educational purposes only, no copyright expressed or implied.<h4>
+                
+            </footer>
 
 </div>
 </div>
-</div>
-

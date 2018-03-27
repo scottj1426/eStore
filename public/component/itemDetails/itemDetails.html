@@ -30,8 +30,14 @@
                         <br>
                          {{details.description}}
                         <br>
-                         Currently in Stock we have {{details.instock}}. <br>
+                        <br>
+                         Currently in Stock we have {{details.instock}}. 
+                         <br>
+                         <br>
+                         
                          <div class="singleAdd">
+                                <input type="number" name="input" ng-model="details.quantity" min="0" max="99" required>
+                                
                          <md-button class="md-raised btn1" ng-click="addToCartById(details)">Add To Cart</md-button>
                         </div>
                    </md-card-content>
@@ -39,6 +45,11 @@
            </div>
        </md-content>
     </div>
+</div>
+<div class="footer">
+    <footer>
+            <small>Website was developed by a student for educational purposes only, no copyright expressed or implied.</small>
+           </footer>
 </div>
 
 

@@ -39,6 +39,9 @@
     </div> --> 
     
     <div class="list-container">
+        <div class="Header">
+            <h1>Shopping cart</h1>
+        </div>
         <div ng-repeat="item in cart track by item.id" class="cart-container">
             <div class="cart">
                 <div class="cartdiv">
@@ -55,7 +58,7 @@
                
                 
                 <div class="cartdiv">
-                    {{item.price}}
+                    ${{item.price}}
                 </div>
                 
                 <label class="cartdiv">
@@ -75,14 +78,14 @@
         <div class="checkoutBox view" >
             <div class="totals">
             <div class="cart">
-                total: {{total | number:2}}
+                total: ${{total | number:2}}
             </div>
             <div class="cart">
-                tax: {{tax | number:2}}
+                tax: ${{tax | number:2}}
             </div>
             
             <div class="cart">
-                total plus tax: {{final | number:2}}
+                total plus tax: ${{final | number:2}}
             </div>
         </div>
             <div class="cart totals">
@@ -130,3 +133,8 @@
     <button type="button" ng-click="openPayment()">CLICK ME FOR PAY</button>
     </div>
 </div> -->
+<div class="footer">
+    <footer>
+            <small>Website was developed by a student for educational purposes only, no copyright expressed or implied.</small>
+           </footer>
+</div>

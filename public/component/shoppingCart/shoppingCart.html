@@ -1,140 +1,83 @@
-
-
 <div class="headerBar">
     <h1> Shopping Cart</h1>
 </div>
 
-<!-- <div class="page-content">
-    <div class="cartBox">
-        <div class="checkoutBox view" >
-            <div class="totals">
-            <div class="cart">
-                total: {{total | number:2}}
-            </div>
-            <div class="cart">
-                tax: {{tax | number:2}}
-            </div>
-            
-            <div class="cart">
-                total plus tax: {{final | number:2}}
-            </div>
-        </div>
-            <div class="cart totals">
-                    <!-- <md-button ng-click="updateCart(cart); reload()">Update</md-button>  -->
-                    <!-- <br>
-                <!-- <button ng-click="updateCart(cart); reload()">Update Cart</button> -->
-                <!-- <md-button ng-click="clearCart(cart); reload()">Clear</md-button>  -->
-                <!-- <br> -->
-                
-                <!-- <button ng-click="clearCart(cart); reload()">Clear Cart</button> -->
-                <!-- <md-button ng-click="openPayment(); cartToOrders(cart); clearCart(cart);">Pay</md-button>
-                <div class="cartControl">
-                        <md-button class="" ng-click="updateCart(cart); reload()">Update</md-button> 
-                        <md-button ng-click="clearCart(cart); reload()">Clear</md-button> 
-                        </div> -->
-                
-                <!-- <button type="button" ng-click="openPayment(); cartToOrders(cart); clearCart(cart); ">CLICK ME FOR PAY</button> -->
-            <!-- </div>
-        </div>
-    </div> --> 
-    
-    <div class="list-container">
-        <div class="Header">
-            <h1>Shopping cart</h1>
-        </div>
-        <div ng-repeat="item in cart track by item.id" class="cart-container">
-            <div class="cart">
-                <div class="cartdiv">
-                        <a>{{item.name}}</a>
-                    <img ng-src="{{item.image}}" alt="">
-                </div>
-                
-                
-                <div class="cartdiv">
-                    
-                        <!-- <a>{{item.name}}</a> -->
-                
-                </div>
-               
-                
-                <div class="cartdiv">
-                    ${{item.price}}
-                </div>
-                
-                <label class="cartdiv">
-                    <input type="number" name="input" ng-model="item.quantity" min="0" max="99" required>
-                </label>
-                <hr>
-                
-                <!-- <button ng-click="deleteFromCart(item.id)" class="cartdiv">Remove From Cart</button> -->
-                <svg ng-click="deleteFromCart(item.id)" class="cartdiv" fill="#000000" height="36" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 13H5v-2h14v2z"/>
-                    <path d="M0 0h24v24H0z" fill="none"/>
-                </svg>
-            </div>
-        </div>
 
-<div class="cartBox">
-        <div class="checkoutBox view" >
-            <div class="totals">
-            <div class="cart">
-                total: ${{total | number:2}}
+<div class="list-container">
+    <div class="Header">
+        <h1>Shopping cart</h1>
+    </div>
+    <div ng-repeat="item in cart track by item.id" class="cart-container">
+        <div class="cart">
+            <div class="cartdiv">
+                <a>{{item.name}}</a>
+                <img ng-src="{{item.image}}" alt="">
             </div>
-            <div class="cart">
-                tax: ${{tax | number:2}}
+
+
+            <div class="cartdiv">
+
+
+
             </div>
-            
-            <div class="cart">
-                total plus tax: ${{final | number:2}}
+
+
+            <div class="cartdiv">
+                ${{item.price}}
             </div>
+
+            <label class="cartdiv">
+                <input type="number" name="input" ng-model="item.quantity" min="0" max="99" required>
+            </label>
+            <hr>
+
+
+            <svg ng-click="deleteFromCart(item.id)" class="cartdiv" fill="#000000" height="36" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 13H5v-2h14v2z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
         </div>
+    </div>
+
+    <div class="cartBox">
+        <div class="checkoutBox view">
+            <div class="totals">
+                <div class="cart">
+                    total: ${{total | number:2}}
+                </div>
+                <div class="cart">
+                    tax: ${{tax | number:2}}
+                </div>
+
+                <div class="cart">
+                    total plus tax: ${{final | number:2}}
+                </div>
+            </div>
             <div class="cart totals">
-                    <!-- <md-button ng-click="updateCart(cart); reload()">Update</md-button>  -->
-                    <br>
-                <!-- <button ng-click="updateCart(cart); reload()">Update Cart</button> -->
-                <!-- <md-button ng-click="clearCart(cart); reload()">Clear</md-button>  -->
+
                 <br>
-                
-                <!-- <button ng-click="clearCart(cart); reload()">Clear Cart</button> -->
+
+                <br>
+
                 <md-button ng-click="openPayment(); cartToOrders(cart); clearCart(cart);">Pay</md-button>
                 <div class="cartControl">
-                        <md-button class="" ng-click="updateCart(cart); reload()">Update</md-button> 
-                        <md-button ng-click="clearCart(cart); reload()">Clear</md-button> 
-                        </div>
-                
-                <!-- <button type="button" ng-click="openPayment(); cartToOrders(cart); clearCart(cart); ">CLICK ME FOR PAY</button> -->
+                    <md-button class="" ng-click="updateCart(cart); reload()">Update</md-button>
+                    <md-button ng-click="clearCart(cart); reload()">Clear</md-button>
+                </div>
+
+
             </div>
         </div>
     </div>
 </div>
-<!-- <div class="cartControl">
-<md-button class="" ng-click="updateCart(cart); reload()">Update</md-button> 
-<md-button ng-click="clearCart(cart); reload()">Clear</md-button> 
-</div> -->
 
 
 
-<!-- <div class="checkoutBox" >
-    <div class="cart">
-        total: {{total | number:2}}
-    </div>
-    <div class="cart">
-        tax: {{tax | number:2}}
-    </div>
 
-    <div class="cart">
-        total plus tax: {{final | number:2}}
-    </div>
-</div>
 
-<div class="cart totals">
-    <button ng-click="updateCart(cart); reload()">Update Cart</button>
-    <button ng-click="clearCart(cart); reload()">Clear Cart</button>
-    <button type="button" ng-click="openPayment()">CLICK ME FOR PAY</button>
-    </div>
-</div> -->
+
 <div class="footer">
     <footer>
-            <small>Website was developed by a student for educational purposes only, no copyright expressed or implied.</small>
-           </footer>
+        <small>Website was developed by a student for educational purposes only, no copyright expressed or implied.</small>
+    </footer>
 </div>
